@@ -114,12 +114,7 @@ batch_size: 500
 ## Development 🧑💻
 
 ```bash
-# Set up virtual environment
-python -m venv venv
-source venv/bin/activate
-
 # Install dependencies
-
 pip install -r requirements.txt
 ```
 
@@ -137,5 +132,5 @@ We welcome contributions! Please follow these steps:
 
 ## License 📄
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
