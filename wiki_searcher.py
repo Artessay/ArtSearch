@@ -42,24 +42,25 @@ class WikiSearcher:
                     "fields": ["title", "text"] 
                 }
             },
+            # "retriever": {
+            #     "standard": {
+            #         "query": {
+            #             "multi_match": {
+            #                 "query": query,
+            #                 "fields": ["title", "text"] 
+            #             }
+            #         }
+            #     }
+            # },
             "size": size
         }
 
         # Execute the search
         response = self.es.search(index=self.index_name, body=search_body)
 
-        # Parse the search results
-        results = [
-            {
-                'id': hit['_id'],
-                'score': hit['_score'],
-                'url': hit['_source'].get('url', ''),           # Add 'url' to the result if available in the document
-                'title': hit['_source'].get('title', ''),       # Add 'title' to the result if available in the document
-                'content': hit['_source'].get('text', '')       # Add 'text' to the result if available in the document
-            }
-            for hit in response['hits']['hits']
-        ]
-        return results
+        hits = response['hits']['hits']
+        relevant_docs = [hit['_source'] for hit in hits]
+        return relevant_docs
 
     def close(self):
         """
@@ -99,16 +100,13 @@ def main():
             print("No relevant documents found.")
         else:
             for idx, doc in enumerate(results, start=1):
-                print(f"Result {idx}:")
-                print(f"ID: {doc['id']}")
-                print(f"Score: {doc['score']}")
-                print(f"Title: {doc['title']}")
-                print(f"Content: {doc['content']}\n")
+                print(f"content #{idx}:")
+                print(f"{doc}\n")
 
     except ConnectionError as ce:
         print(f"Connection Error: {ce}")
-    # except Exception as e:
-    #     print(f"An unexpected error occurred: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
     finally:
         # Ensure the Elasticsearch connection is closed
         if 'searcher' in locals():
