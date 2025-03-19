@@ -42,16 +42,6 @@ class WikiSearcher:
                     "fields": ["title", "text"] 
                 }
             },
-            # "retriever": {
-            #     "standard": {
-            #         "query": {
-            #             "multi_match": {
-            #                 "query": query,
-            #                 "fields": ["title", "text"] 
-            #             }
-            #         }
-            #     }
-            # },
             "size": size
         }
 
