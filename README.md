@@ -70,6 +70,23 @@ Example data structure:
 
 ## Usage 🚀
 
+### Folder Structure
+
+```
+├── data                      # Data folder
+│   ├── elasticsearch-8.17.3  # Elasticsearch engine
+│   └── wikipedia             # Wikipedia data folder
+│       ├── 20231101.en       # English data
+│       ├── 20231101.zh       # Chinese data
+│       ...                   # more language data
+│
+├── es_wiki_build.py          # Scripts for build wiki index
+├── es_wiki_test.py           # Unit test for elasticsearch
+├── README.md
+├── requirements.txt
+└── wiki_searcher.py          # Search client for wiki data
+```
+
 ### Building Index
 
 ```bash
