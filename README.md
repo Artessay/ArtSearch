@@ -6,16 +6,21 @@ A local search system implementation using Elasticsearch for Wikipedia data inde
 
 ## Table of Contents
 
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Building Index](#building-index)
-  - [Performing Searches](#performing-searches)
-- [Configuration](#configuration)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
+- [ArtSearch 🔍 ](#artsearch--)
+  - [Table of Contents](#table-of-contents)
+  - [Features ✨](#features-)
+  - [Prerequisites 🛠️](#prerequisites-️)
+  - [Installation ⚙️](#installation-️)
+    - [1. Download Elasticsearch Engine](#1-download-elasticsearch-engine)
+    - [2. Download Wikipedia Data](#2-download-wikipedia-data)
+  - [Usage 🚀](#usage-)
+    - [Folder Structure](#folder-structure)
+    - [Building Index](#building-index)
+    - [Performing Searches](#performing-searches)
+  - [Configuration ⚙️](#configuration-️)
+  - [Development 🧑💻](#development-)
+  - [Contributing 🤝](#contributing-)
+  - [License 📄](#license-)
 
 ## Features ✨
 
@@ -101,10 +106,10 @@ python es_wiki_build.py --language fr
 
 ```bash
 # Default search setting
-python es_wiki_search.py
+python es_wiki_test.py
 
 # Direct query execution
-python es_wiki_search.py \
+python es_wiki_test.py \
   --language en \
   --query "Paris 2024 Olympic Games" 
 ```
